@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('users', 'ChartController@index');
+
+Route::resource('posts', 'PostsController');
