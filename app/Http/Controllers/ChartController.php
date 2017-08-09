@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use DB;
 use Charts;
+use Datatables;
 
 class ChartController extends Controller
 {
@@ -19,5 +20,10 @@ class ChartController extends Controller
         ->groupByMonth(date('Y'), true);
         
         return view('charts', compact('chart'));
+    }
+    
+    public function getData(){
+        return Datatables::of(User::query())->make(true);
+       
     }
 }

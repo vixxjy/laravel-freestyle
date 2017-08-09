@@ -17,4 +17,10 @@ Route::get('/', function () {
 
 Route::get('users', 'ChartController@index');
 
+Route::get('users/data', ['as'=>'provide.data','uses'=>'ChartController@getData']);
+
+Route::get('events', 'EventController@index');
+
 Route::resource('posts', 'PostsController');
+
+Route::get('download-csv', ['as' => 'csv', 'uses' => 'EventController@getCSV']);
